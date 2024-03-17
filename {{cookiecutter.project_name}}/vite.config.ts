@@ -1,7 +1,7 @@
 import path from "path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { baseUrl } from "rollup-plugin-base-url";
+import { splitVendorChunkPlugin } from "vite";
 
 const serverConfig = {
   host: true,
@@ -12,7 +12,7 @@ const serverConfig = {
 };
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), splitVendorChunkPlugin()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -27,11 +27,7 @@ export default defineConfig({
         chunkFileNames: `assets/[name].js`,
         assetFileNames: `assets/[name].[ext]`,
       },
-      plugins: [
-        baseUrl({
-          url: "/static",
-        }),
-      ],
+      plugins: [],
     },
   },
 });
