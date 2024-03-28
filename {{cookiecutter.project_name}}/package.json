@@ -37,6 +37,6 @@
     "vite": "^5.1.6"
   },
   "peerDependencies": {
-    "@chaoying/flect": "0.2.8"
+    "@chaoying/flect": "0.2.10"
   }
 }
